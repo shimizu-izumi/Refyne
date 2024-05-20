@@ -1118,9 +1118,6 @@ function Set-NetworkTweaks {
             Read-CommandStatus "netsh int tcp set supplemental Template=DatacenterCustom CongestionProvider=NewReno" "Enabled New-Reno for custom datacenter traffic"
             Read-CommandStatus "netsh int tcp set supplemental Template=InternetCustom CongestionProvider=NewReno" "Enabled New-Reno for custom general traffic"
         }
-        # Forcing DNS to Cloudflare's, generally faster and more secure compared to ISP's DNS - overridable by user
-        Set-DnsClientServerAddress -InterfaceAlias $adapterName -ServerAddresses ("1.1.1.1", "1.0.0.1")
-        Set-DnsClientServerAddress -InterfaceAlias $adapterName -ServerAddresses ("2606:4700:4700::1111", "2606:4700:4700::1001")
     }
 
     END {
